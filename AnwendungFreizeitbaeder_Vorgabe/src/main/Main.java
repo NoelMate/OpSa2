@@ -13,6 +13,7 @@ public class Main extends Application {
 		new FreizeitbaederControl(primaryStage);
 	}	
 	
+	
 	public static void main(String[] args){
 		launch(args);
 	}

@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 public class FreizeitbaederControl {
 	
+
+	
 	private FreizeitbaederModel freizeitbaederModel;
 	private FreizeitbaederView freizeitbaederView;
 	

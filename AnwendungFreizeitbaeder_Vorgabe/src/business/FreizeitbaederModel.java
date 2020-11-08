@@ -11,6 +11,7 @@ public class FreizeitbaederModel {
 		public FreizeitbaederModel() {}
 		
 		
+		
 		public void schreibeFreizeitbaederInCsvDatei() throws IOException {
 			BufferedWriter aus = new BufferedWriter(new FileWriter("Freizeitbaeder.csv", true));
 			aus.write(this.getFreizeitbad().gibFreizeitbadZurueck(';'));
@@ -20,5 +21,6 @@ public class FreizeitbaederModel {
 			// TODO Auto-generated method stub
 			return freizeitbad;
 		}
+		
 		
 }

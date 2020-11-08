@@ -21,6 +21,7 @@ import ownUtil.PlausiException;
 
 public class FreizeitbaederView {
 	
+	
 	private Pane pane     				= new  Pane();
     private Label lblEingabe    	 	= new Label("Eingabe");
     private Label lblAnzeige   	 	    = new Label("Anzeige");
