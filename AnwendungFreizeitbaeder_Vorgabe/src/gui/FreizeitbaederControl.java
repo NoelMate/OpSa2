@@ -8,8 +8,6 @@ import javafx.stage.Stage;
 
 public class FreizeitbaederControl {
 	
-
-	
 	private FreizeitbaederModel freizeitbaederModel;
 	private FreizeitbaederView freizeitbaederView;
 	
@@ -24,6 +22,10 @@ public class FreizeitbaederControl {
 			if("csv".equals(typ)) {
 				this.freizeitbaederModel.schreibeFreizeitbaederInCsvDatei();
 				this.freizeitbaederView.zeigeInformationsfensterAn("Erfolg! Der Eintrag wurde vorgenommen.");
+			}
+			else if("txt".equals(typ)) {
+				this.freizeitbaederModel.schreibeFreizeitbaederInTxtDatei();
+				this.freizeitbaederView.zeigeInformationsfensterAn("Erfolg! Der Eintrag wurde in die TEXT-Datei geschrieben.");
 			}
 			else {
 				this.freizeitbaederView.zeigeInformationsfensterAn("Nicht imlementiert!");
