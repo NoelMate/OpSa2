@@ -1,20 +1,21 @@
-package gui;
-
+package gui.guiFreizeitbaeder;
+import business.*;
 import java.io.IOException;
 
 import business.FreizeitbaederModel;
 import javafx.stage.Stage;
 
 
-public class FreizeitbaederControl {
+public class FreizeitbaederControl implements Observer {
 	
 	private FreizeitbaederModel freizeitbaederModel;
 	private FreizeitbaederView freizeitbaederView;
 	
 
 	public FreizeitbaederControl(Stage primaryStage) {
-		this.freizeitbaederModel = new FreizeitbaederModel();
+		this.freizeitbaederModel = FreizeitbaederModel.getInstance();
 		this.freizeitbaederView = new FreizeitbaederView(this, primaryStage, freizeitbaederModel);
+		this.freizeitbaederModel.addObserver(this);
 	}
 	
 	void schreibeFreizeitbaederInDatei(String typ) {
@@ -37,5 +38,10 @@ public class FreizeitbaederControl {
 		catch (Exception ex) {
 			this.freizeitbaederView.zeigeFehlermeldungAn("Fehler nicht bekannt", "Es ist ein Unbekannter Fehler aufgetaucht");
 		}
+	}
+
+	@Override
+	public void update() {
+		freizeitbaederView.zeigeFreizeitbaederAn();
 	}
 }

@@ -1,16 +1,17 @@
 package main;
 
-// FreizeitbaederAnwedersystem Klasse wird nicht mehr benötigt.
-//import gui.FreizeitbaederAnwendersystem;
-import gui.FreizeitbaederControl;
+import gui.guiFreizeitbaeder.FreizeitbaederControl;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import gui.guiSportstaetten.*;
 
 public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
 		new FreizeitbaederControl(primaryStage);
+		Stage fensterSportstaetten = new Stage();
+		new SportstaettenControl(fensterSportstaetten);
 	}	
 	
 	public static void main(String[] args){

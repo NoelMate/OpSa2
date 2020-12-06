@@ -1,5 +1,0 @@
-Daten des Freizeitbads
-Name des Freizeitbads:				Westpark
-Öffnungszeit des Freizeitbads:				8.0 - 20.0
-Beckenlänge des Freizeitbads:				32
-Wassertemperatur des Freizeitbads:				31

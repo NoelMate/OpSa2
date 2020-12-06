@@ -1,4 +1,4 @@
-package gui;
+/*package gui.guiFreizeitbaeder;
    
 import business.Freizeitbad;
 import javafx.event.*;
@@ -160,3 +160,4 @@ public class FreizeitbaederAnwendersystem {
     }
 
 }
+*/

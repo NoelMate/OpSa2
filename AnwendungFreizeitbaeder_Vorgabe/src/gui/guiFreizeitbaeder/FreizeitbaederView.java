@@ -1,4 +1,4 @@
-package gui;
+package gui.guiFreizeitbaeder;
 
 import business.Freizeitbad;
 import business.FreizeitbaederModel;
@@ -45,13 +45,12 @@ public class FreizeitbaederView {
     //-------Ende Attribute der grafischen Oberflaeche-------
     
     // speichert temporaer ein Objekt vom Typ Freizeitbad
-    private Freizeitbad freizeitbad;
     private FreizeitbaederControl freizeitbaederControl;
     private FreizeitbaederModel freizeitbaederModel;
       
     public FreizeitbaederView(FreizeitbaederControl freizeitbeaderControl, Stage primaryStage, FreizeitbaederModel freizeitbaederModel){
     	this.freizeitbaederModel = freizeitbaederModel;
-    	freizeitbaederControl = freizeitbeaderControl;
+    	this.freizeitbaederControl = freizeitbeaderControl;
     	Scene scene = new Scene(this.pane, 560, 340);
     	primaryStage.setScene(scene);
     	primaryStage.setTitle("Verwaltung von Freizeitbädern");
@@ -127,6 +126,8 @@ public class FreizeitbaederView {
             @Override
             public void handle(ActionEvent e) {
         	    nehmeFreizeitbadAuf();
+        	    zeigeFreizeitbaederAn();
+        	    freizeitbaederModel.notifyObservers();
             }
 	    });
 	    btnAnzeige.setOnAction(new EventHandler<ActionEvent>() {
@@ -158,7 +159,6 @@ public class FreizeitbaederView {
    	            txtGeoeffnetBis.getText(),
     		    txtBeckenlaenge.getText(),
     		    txtWassTemperatur.getText());
-    		zeigeInformationsfensterAn("Das Freizeitbad wurde aufgenommen!");
        	}
        	catch(PlausiException exc){
        		zeigeFehlermeldungAn(exc.getPlausiTyp() + "er ", exc.getMessage());
