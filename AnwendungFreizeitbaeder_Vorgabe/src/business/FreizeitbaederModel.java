@@ -4,6 +4,9 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import factory.*;
+import ownUtil.Observable;
+import ownUtil.Observer;
+
 import java.util.*;
 
 public class FreizeitbaederModel implements Observable{
@@ -18,7 +21,7 @@ public class FreizeitbaederModel implements Observable{
 		}*/
 
 
-		public FreizeitbaederModel() {}
+		private FreizeitbaederModel() {}
 		
 		public void schreibeFreizeitbaederInTxtDatei() throws IOException {
 			Creator creator = new ConcreteCreator();

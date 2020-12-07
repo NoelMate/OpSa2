@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import business.FreizeitbaederModel;
 import javafx.stage.Stage;
+import ownUtil.Observer;
 
 
 public class FreizeitbaederControl implements Observer {

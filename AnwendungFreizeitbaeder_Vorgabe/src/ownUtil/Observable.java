@@ -1,4 +1,4 @@
-package business;
+package ownUtil;
 
 public interface Observable {
 	public void addObserver(Observer obs);

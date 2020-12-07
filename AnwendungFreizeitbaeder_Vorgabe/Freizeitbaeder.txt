@@ -1,0 +1,5 @@
+Daten des Freizeitbads
+Name des Freizeitbads:				hey
+Öffnungszeit des Freizeitbads:				4.0 - 20.0
+Beckenlänge des Freizeitbads:				60
+Wassertemperatur des Freizeitbads:				23

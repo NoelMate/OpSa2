@@ -3,6 +3,7 @@ package gui.guiSportstaetten;
 import java.io.IOException;
 import business.*;
 import javafx.stage.Stage;
+import ownUtil.Observer;
 import gui.guiFreizeitbaeder.*;
 
 public class SportstaettenControl implements Observer {
