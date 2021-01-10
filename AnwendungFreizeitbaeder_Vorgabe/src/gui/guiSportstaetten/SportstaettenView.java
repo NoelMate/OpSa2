@@ -1,6 +1,7 @@
 
 package gui.guiSportstaetten;
    
+import business.Freizeitbad;
 import business.FreizeitbaederModel;
 import gui.guiFreizeitbaeder.FreizeitbaederControl;
 import javafx.event.*;
@@ -66,10 +67,15 @@ public class SportstaettenView {
     }
    
     void zeigeFreizeitbaederAn(){
-    		if(freizeitbaederModel.getFreizeitbad() != null){
-    			txtAnzeigeFreizeitbaeder.setText(
+    		if(freizeitbaederModel.getFreizeitbad().size() > 0){
+    			StringBuffer text = new StringBuffer();
+    			for(Freizeitbad fzb : this.freizeitbaederModel.getFreizeitbad()) {
+    				text.append(fzb.gibFreizeitbadZurueck(' ') + "\n");
+    			}
+    			this.txtAnzeigeFreizeitbaeder.setText(text.toString());
+    			/*txtAnzeigeFreizeitbaeder.setText(
     				freizeitbaederModel.getFreizeitbad()
- 				.gibFreizeitbadZurueck(' '));
+ 				.gibFreizeitbadZurueck(' ')); */
     		}
     		else{
     			zeigeInformationsfensterAn(

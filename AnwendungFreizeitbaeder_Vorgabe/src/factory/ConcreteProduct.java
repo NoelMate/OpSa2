@@ -12,7 +12,7 @@ public class ConcreteProduct extends Product {
 	
 	@Override
 	public void fuegeInDateiHinzu(Object object) throws IOException {
-		writer.write(((Freizeitbad)object).gibFreizeitbadZurueck(';'));
+		writer.write(((Freizeitbad)object).gibFreizeitbadZurueck(';') + "\n");
 	}
 
 	@Override

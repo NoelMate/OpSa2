@@ -16,11 +16,14 @@ public class ConcreteTextWriterProduct extends Product {
 	
 	@Override
 	public void fuegeInDateiHinzu(Object object) throws IOException {
+		
 		writer.write("Daten des Freizeitbads\n");
-		writer.write("Name des Freizeitbads:\t\t\t\t" + ((Freizeitbad)object).getName() + "\n");
+		writer.write("Name des Freizeitbads:\t\t\t\t\t" + ((Freizeitbad)object).getName() + "\n");
 		writer.write("Öffnungszeit des Freizeitbads:\t\t\t\t" + ((Freizeitbad)object).getGeoeffnetVon() + " - " + ((Freizeitbad)object).getGeoeffnetBis() + "\n");
 		writer.write("Beckenlänge des Freizeitbads:\t\t\t\t" + ((Freizeitbad)object).getBeckenlaenge() + "\n");
 		writer.write("Wassertemperatur des Freizeitbads:\t\t\t\t" + ((Freizeitbad)object).getTemperatur());
+		writer.write("\n\n");
+		
 	}
 
 	@Override

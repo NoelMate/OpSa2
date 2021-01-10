@@ -10,7 +10,7 @@ import ownUtil.Observer;
 import java.util.*;
 
 public class FreizeitbaederModel implements Observable{
-		public Freizeitbad freizeitbad;
+		public ArrayList<Freizeitbad> freizeitbad = new ArrayList<Freizeitbad>();
 		private static FreizeitbaederModel instance = null;
 		Vector <Observer> observerlist = new Vector <Observer>();
 		
@@ -26,20 +26,26 @@ public class FreizeitbaederModel implements Observable{
 		public void schreibeFreizeitbaederInTxtDatei() throws IOException {
 			Creator creator = new ConcreteCreator();
 			Product writer = creator.factoryMethod("txt");
-			writer.fuegeInDateiHinzu(this.freizeitbad);
+			for(Freizeitbad fzb : this.freizeitbad)
+				writer.fuegeInDateiHinzu(fzb);
 			writer.schliesseDatei();
 		}
 		
 		public void schreibeFreizeitbaederInCsvDatei() throws IOException {
 			Creator creator = new ConcreteCreator();
 			Product writer = creator.factoryMethod("csv");
-			writer.fuegeInDateiHinzu(this.freizeitbad);
+			for(Freizeitbad fzb : this.freizeitbad)
+				writer.fuegeInDateiHinzu(fzb);
 			writer.schliesseDatei();
 		}
 		
-		public Freizeitbad getFreizeitbad() {
+		public ArrayList<Freizeitbad> getFreizeitbad() {
 			// TODO Auto-generated method stub
 			return freizeitbad;
+		}
+		
+		public void addFreizeitbad(Freizeitbad freizeitbad) {
+			this.freizeitbad.add(freizeitbad);
 		}
 		
 		public static FreizeitbaederModel getInstance() {
