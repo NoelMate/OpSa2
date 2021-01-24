@@ -1,42 +1,35 @@
 package gui.guiSportstaetten;
-
 import java.io.IOException;
-import business.*;
+import business.businessSporthallen.SporthallenModel;
+import business.businessFrezeitbad.FreizeitbaederModel;
 import javafx.stage.Stage;
 import ownUtil.Observer;
-import gui.guiFreizeitbaeder.*;
+import ownUtil.PlausiException;
 
 public class SportstaettenControl implements Observer {
-	
+	private SportstaettenView sportstaettenView; 
 	private FreizeitbaederModel freizeitbaederModel;
-	private SportstaettenView sportstaettenView;
+	private SporthallenModel sporthallenModel;
 	
-
 	public SportstaettenControl(Stage primaryStage) {
-		this.freizeitbaederModel = FreizeitbaederModel.getInstance();
-		this.sportstaettenView = new SportstaettenView(freizeitbaederModel, primaryStage);
-		freizeitbaederModel.addObserver(this);
+		this.freizeitbaederModel	= FreizeitbaederModel.getInstance();
+		this.sporthallenModel		= SporthallenModel.getInstance();
+		this.sportstaettenView		= new SportstaettenView(primaryStage, freizeitbaederModel, sporthallenModel, this);
+		this.freizeitbaederModel.addObserver(this);
 	}
 	
-	void schreibeFreizeitbaederInDatei(String typ) {
+	void leseSporthallenAusDatei(String typ) {
 		try {
-			if("csv".equals(typ)) {
-				this.freizeitbaederModel.schreibeFreizeitbaederInCsvDatei();
-				this.sportstaettenView.zeigeInformationsfensterAn("Erfolg! Der Eintrag wurde vorgenommen.");
-			}
-			else if("txt".equals(typ)) {
-				this.freizeitbaederModel.schreibeFreizeitbaederInTxtDatei();
-				this.sportstaettenView.zeigeInformationsfensterAn("Erfolg! Der Eintrag wurde in die TEXT-Datei geschrieben.");
+			if(typ.equals("csv")) {
+				sporthallenModel.leseSporthallenAusCsvDatei();
+				this.sportstaettenView.zeigeInformationsfensterAn("Die Daten aus Sporthallen.csv wurden erfolgreich importiert.");
 			}
 			else {
-				this.sportstaettenView.zeigeInformationsfensterAn("Nicht imlementiert!");
+				this.sportstaettenView.zeigeInformationsfensterAn("Die Datei existiert nicht.");
 			}
-		}
-		catch (IOException ex) {
-			this.sportstaettenView.zeigeFehlermeldungAn("IO-Fehler", "IOException beim Speichern in die Datei");
-		}
-		catch (Exception ex) {
-			this.sportstaettenView.zeigeFehlermeldungAn("Fehler nicht bekannt", "Es ist ein Unbekannter Fehler aufgetaucht");
+		} catch (IOException | PlausiException e) {
+			this.sportstaettenView.zeigeFehlermeldungAn("Fehler nicht bekannt", "Beim Importieren des ist ein Unbekannter Fehler aufgetaucht");
+			e.printStackTrace();
 		}
 	}
 

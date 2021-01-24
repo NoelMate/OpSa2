@@ -2,6 +2,7 @@ package factory;
 
 import java.io.*;
 import business.*;
+import business.businessFrezeitbad.Freizeitbad;
 
 public class ConcreteProduct extends Product {
 	private BufferedWriter writer;

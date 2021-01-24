@@ -6,7 +6,6 @@ import javafx.stage.Stage;
 import gui.guiSportstaetten.*;
 
 public class Main extends Application {
-	
 	@Override
 	public void start(Stage primaryStage) {
 		new FreizeitbaederControl(primaryStage);

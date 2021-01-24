@@ -1,8 +1,8 @@
 package gui.guiFreizeitbaeder;
-import business.*;
+import business.businessFrezeitbad.FreizeitbaederModel;
+
 import java.io.IOException;
 
-import business.FreizeitbaederModel;
 import javafx.stage.Stage;
 import ownUtil.Observer;
 
@@ -30,7 +30,7 @@ public class FreizeitbaederControl implements Observer {
 				this.freizeitbaederView.zeigeInformationsfensterAn("Erfolg! Der Eintrag wurde in die TEXT-Datei geschrieben.");
 			}
 			else {
-				this.freizeitbaederView.zeigeInformationsfensterAn("Nicht imlementiert!");
+				this.freizeitbaederView.zeigeInformationsfensterAn("Nicht implementiert!");
 			}
 		}
 		catch (IOException ex) {
